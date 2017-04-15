@@ -1,0 +1,8 @@
+﻿Version 2.6.0.1
+------------------------------------
+Änderungen:
+    - Verbesserte Stabilität
+	- Fehlerbehebungen
+	- Performanceverbesserungen
+	- Verbesserte Benutzerfreundlichkeit
+	- Benutzer können jetzt eigene Texturen verwenden
