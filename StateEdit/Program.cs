@@ -3,6 +3,7 @@ using System.Windows.Forms;
 
 namespace StateEdit
 {
+    [Obsolete("The state system got dropped. Simply enter name and points into BCS Software.")]
     static class Program
     {
         /// <summary>

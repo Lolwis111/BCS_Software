@@ -32,7 +32,7 @@ namespace BCS_Software
                 IPEndPoint endPoint = new IPEndPoint(IPAddress.Any, port);
 
                 _socket.Bind(endPoint);
-                _socket.Listen(2);
+                _socket.Listen(1);
 
                 while (_partner == null)
                     _partner = _socket.Accept();
@@ -49,31 +49,18 @@ namespace BCS_Software
 
         public string GetMessage()
         {
-            byte[] size = new byte[4];
+            byte[] buffer = GetData();
 
-            if (_isServer)
-            {
-
-                _partner.Receive(size);
-                byte[] buffer = new byte[BitConverter.ToInt32(size, 0)];
-                int msg = _partner.Receive(buffer);
-
-                return Encoding.ASCII.GetString(buffer, 0, msg);
-            }
-            else
-            {
-                _socket.Receive(size);
-                byte[] buffer = new byte[BitConverter.ToInt32(size, 0)];
-                int msg = _socket.Receive(buffer);
-
-                return Encoding.ASCII.GetString(buffer, 0, msg);
-            }
+            return Encoding.ASCII.GetString(buffer, 0, buffer.Length);
         }
 
         public void SendMessage(string message)
         {
-            byte[] buffer = Encoding.ASCII.GetBytes(message);
+            SendData(Encoding.ASCII.GetBytes(message));
+        }
 
+        public void SendData(byte[] buffer)
+        {
             if (_isServer)
             {
                 _partner.Send(BitConverter.GetBytes(buffer.Length));
@@ -83,6 +70,28 @@ namespace BCS_Software
             {
                 _socket.Send(BitConverter.GetBytes(buffer.Length));
                 _socket.Send(buffer);
+            }
+        }
+
+        public byte[] GetData()
+        {
+            byte[] size = new byte[4];
+
+            if (_isServer)
+            {
+                _partner.Receive(size);
+                byte[] buffer = new byte[BitConverter.ToInt32(size, 0)];
+                _partner.Receive(buffer);
+
+                return buffer;
+            }
+            else
+            {
+                _socket.Receive(size);
+                byte[] buffer = new byte[BitConverter.ToInt32(size, 0)];
+                _socket.Receive(buffer);
+
+                return buffer;
             }
         }
 

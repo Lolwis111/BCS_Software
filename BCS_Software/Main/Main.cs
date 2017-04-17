@@ -13,47 +13,118 @@ namespace BCS_Software
     {
         #region Fields
 
+        /// <summary>
+        /// Width of window when chat is hidden
+        /// </summary>
         private const int WidthNoChat = 681;
+
+        /// <summary>
+        /// Width of window when chat is visible
+        /// </summary>
         private const int WidthWithChat = 1043;
 
+        /// <summary>
+        /// indicates if the chat is currently visible
+        /// </summary>
         private bool _chatVisible = false;
 
-        private int _startPower = 1000;
-        private int _buyPoints = 1000;
+        /// <summary>
+        /// How many points the state has
+        /// </summary>
+        private int _buyPoints = 1000;  
 
+        /// <summary>
+        /// IP of the server
+        /// (only valid when connecting as client)
+        /// </summary>
         private string _ip = string.Empty;
+
+        /// <summary>
+        /// Port to use to connect with the server
+        /// </summary>
         private int _port = 0;
 
+        /// <summary>
+        /// Stores the current set of commands to send to the partner
+        /// </summary>
         private StringBuilder _commands = new StringBuilder();
 
-        private WarType _atacker = WarType.None;
+        /// <summary>
+        /// Current attacker (Soldier, Tank, Jet or none)
+        /// </summary>
+        private WarType _attacker = WarType.None;
 
-        private WarType _enemy = WarType.None;
+        /// <summary>
+        /// Current defender (Soldier, Tank, Jet or none)
+        /// </summary>
+        private WarType _defender = WarType.None;
 
+        /// <summary>
+        /// Instance of the player you play
+        /// </summary>
         private Player _playerYou = new Player();
 
+        /// <summary>
+        /// Instance of the player your partner plays
+        /// </summary>
         private Player _playerEnemy = new Player();
 
+        /// <summary>
+        /// Indicates if this application serves as the server
+        /// </summary>
         private bool _isHost = false;
 
-        private NetworkManager _connectionObject;
+        /// <summary>
+        /// Contains method to commuicate over tcp/ip
+        /// </summary>
+        private NetworkManager _network;
 
+        /// <summary>
+        /// Reference to the Starter window
+        /// </summary>
         private Starter _starter;
 
-        private int _startObjectSum = 0;
+        /// <summary>
+        /// Reference to the Help window
+        /// </summary>
+        private Help _helper = new Help();
 
+        /// <summary>
+        /// Indicates wether or not its your turn
+        /// </summary>
         private bool _yourTurn = false;
 
+        /// <summary>
+        /// for debugging, is true when debug is selected in the starter window
+        /// </summary>
         private bool _debug = false;
 
-        private Random _random = new Random();
+        /// <summary>
+        /// global random number generator
+        /// </summary>
+        private Random _random = new Random((int)(DateTime.Now.Ticks % int.MaxValue));
 
-        private bool _serverEstablished = false;
+        /// <summary>
+        /// inidactes if the server connected to the client and successfully executed the handshake
+        /// </summary>
+        private bool _isServerConnected = false;
 
         #endregion
 
-        #region Konstruktor
+        #region Constructor
 
+        /// <summary>
+        /// Creates a new Main window
+        /// </summary>
+        /// <param name="serverIp">Server IP to connect to</param>
+        /// <param name="port">Port to connect on</param>
+        /// <param name="isHost">Is this instance the server?</param>
+        /// <param name="starter">Instance to Starter window</param>
+        /// <param name="debugMode">start in debug mode</param>
+        /// <param name="firstMove">Is this player starting?</param>
+        /// <param name="customImages">Paths to the custom images</param>
+        /// <param name="stateName">Name of your state</param>
+        /// <param name="statePoints">Points your state has</param>
         public Main(string serverIp, int port, bool isHost, Starter starter, bool debugMode, bool firstMove, CustomImages customImages, string stateName, int statePoints)
         {
             _debug = debugMode;
@@ -61,7 +132,8 @@ namespace BCS_Software
             _ip = serverIp;
             _isHost = isHost;
             _yourTurn = firstMove;
-            _playerYou = new Player
+
+            _playerYou = new Player // Create your player
             {
                 IsReady = false,
                 Jets = 0,
@@ -71,16 +143,17 @@ namespace BCS_Software
                 StartPoints = statePoints,
                 Tanks = 0
             };
+
             _port = port;
 
             InitializeComponent();
 
-            LoadImages(customImages);
+            LoadImages(customImages); // load the custom textures
         }
 
         #endregion
 
-        #region Angriff
+        #region Attack
 
         private void PcSoldierEnemy_MouseClick(object sender, MouseEventArgs e)
         {
@@ -97,7 +170,7 @@ namespace BCS_Software
 
                 _yourTurn = false;
 
-                _enemy = WarType.Soldier;
+                _defender = WarType.Soldier;
 
                 _commands.Append("/y");
 
@@ -120,7 +193,7 @@ namespace BCS_Software
 
                 _yourTurn = false;
 
-                _enemy = WarType.Tank;
+                _defender = WarType.Tank;
 
                 _commands.Append("/y");
 
@@ -143,7 +216,7 @@ namespace BCS_Software
 
                 _yourTurn = false;
 
-                _enemy = WarType.Jet;
+                _defender = WarType.Jet;
 
                 _commands.Append("/y");
 
@@ -153,8 +226,7 @@ namespace BCS_Software
 
         private void DefineAtackCommand()
         {
-            int rnd = _random.Next(0, 100);
-            if (rnd < 10)
+            if (_random.NextDouble() < Constants.HitChance)
             {
                 _commands.Append("/a99");
                 listBoxLog.Items.Add("Dein Angriff ging daneben!");
@@ -162,10 +234,10 @@ namespace BCS_Software
             }
 
 
-            switch (_atacker)
+            switch (_attacker)
             {
                 case WarType.Jet:
-                    switch (_enemy)
+                    switch (_defender)
                     {
                         case WarType.Jet:
                             {
@@ -176,13 +248,13 @@ namespace BCS_Software
                         case WarType.Soldier:
                             {
                                 _commands.Append("/a31");
-                                listBoxLog.Items.Add("Jet hat eine feindliche Bodeneinheit zerstört!");
+                                listBoxLog.Items.Add("Jet hat eine feindliche Bodeneinheiten zerstört!");
                                 break;
                             }
                         case WarType.Tank:
                             {
                                 _commands.Append("/a32");
-                                listBoxLog.Items.Add("Panzer wurde von feindlichem Jet stark beschädigt!");
+                                listBoxLog.Items.Add("Jet hat feindliche Panzer zerstört!");
                                 break;
                             }
                         default:
@@ -190,7 +262,7 @@ namespace BCS_Software
                     }
                     break;
                 case WarType.Soldier:
-                    switch (_enemy)
+                    switch (_defender)
                     {
                         case WarType.Jet:
                             {
@@ -215,12 +287,11 @@ namespace BCS_Software
                     }
                     break;
                 case WarType.Tank:
-                    switch (_enemy)
+                    switch (_defender)
                     {
                         case WarType.Jet:
                             {
-                                rnd = _random.Next(0, 100);
-                                if (rnd <= 1)
+                                if (_random.NextDouble() < Constants.TankOnJetHitChance)
                                 {
                                     _commands.Append("/a23a");
                                     listBoxLog.Items.Add("GLÜCKSTREFFER! Dein Panzer zertört einen Jet!");
@@ -295,9 +366,9 @@ namespace BCS_Software
                     labelTankEnemy.Enabled = true;
                 }
 
-                _atacker = WarType.Soldier;
+                _attacker = WarType.Soldier;
             }
-            else if(_playerYou.IsReady)
+            else if(!_playerYou.IsReady)
             {
                 if (e.Button == MouseButtons.Left)
                 {
@@ -317,7 +388,7 @@ namespace BCS_Software
                     _buyPoints += Constants.SoldierPoints;
                 }
 
-                labelSoldierYou.Text = $"Bodeneinheit ({Math.Ceiling(_playerYou.Soldiers).ToString("D2")})";
+                labelSoldierYou.Text = string.Format("Bodeneinheit ({0:00})", Math.Ceiling(_playerYou.Soldiers));
                 buttonReady.Text = $"Fertig ({_buyPoints})";
             }
         }
@@ -359,9 +430,9 @@ namespace BCS_Software
                     labelTankEnemy.Enabled = true;
                 }
 
-                _atacker = WarType.Tank;
+                _attacker = WarType.Tank;
             }
-            else if(_playerYou.IsReady)
+            else if(!_playerYou.IsReady)
             {
                 if (e.Button == MouseButtons.Left)
                 {
@@ -381,7 +452,7 @@ namespace BCS_Software
                     _buyPoints += Constants.TankPoints;
                 }
 
-                pcTankYou.Text = $"Panzer ({Math.Ceiling(_playerYou.Tanks).ToString("D2")})";
+                pcTankYou.Text = string.Format("Panzer ({0:00})", Math.Ceiling(_playerYou.Tanks));
                 buttonReady.Text = $"Fertig ({_buyPoints.ToString()})";
             }
         }
@@ -423,9 +494,9 @@ namespace BCS_Software
                     labelTankEnemy.Enabled = true;
                 }
 
-                _atacker = WarType.Jet;
+                _attacker = WarType.Jet;
             }
-            else if(_playerYou.IsReady)
+            else if(!_playerYou.IsReady)
             {
                 if (e.Button == MouseButtons.Left)
                 {
@@ -445,7 +516,7 @@ namespace BCS_Software
                     _buyPoints += Constants.JetPoints;
                 }
 
-                pcJetYou.Text = $"Flugzeug ({Math.Ceiling(_playerYou.Jets).ToString("D2")})";
+                pcJetYou.Text = string.Format("Flugzeug ({0:00})", Math.Ceiling(_playerYou.Jets));
                 buttonReady.Text = $"Fertig ({_buyPoints})";
             }
         }
@@ -456,15 +527,16 @@ namespace BCS_Software
 
         private void Main_Load(object sender, EventArgs e)
         {
+            _helper.Location = new Point(Bounds.Location.X + Bounds.Size.Width, Bounds.Location.Y);
+
             uiTimer.Start();
 
             labelEnemyName.Text = _playerEnemy.Name;
             labelYourName.Text = _playerYou.Name;
 
-            _startPower = _playerYou.StartPoints;
             _buyPoints = _playerYou.StartPoints;
 
-            progressLifeBarYou.Maximum = _playerYou.ObjectSum;
+            progressLifeBarYou.Maximum = _playerYou.StartPoints;
             labelLifePointsYou.Text = _playerYou.StartPoints.ToString();
             progressLifeBarYou.Value = _playerYou.ObjectSum;
 
@@ -488,17 +560,18 @@ namespace BCS_Software
                     };
                     initThread.Start();
 
-                    listBoxLog.Items.Add("Warte auf Client...");
+                    listBoxLog.Items.Add("Du bist Host.");
+                    listBoxLog.Items.Add("Warte auf Verbindung.");
                 }
                 else
                 {
-                    _connectionObject = new NetworkManager(IPAddress.Parse(_ip), _port, _isHost);
+                    _network = new NetworkManager(IPAddress.Parse(_ip), _port, _isHost);
 
-                    _connectionObject.SendMessage($"/c3/{_playerYou.Name}/{_playerYou.StartPoints}");
+                    _network.SendMessage($"/c3/{_playerYou.Name}/{_playerYou.StartPoints}");
 
                     for (int index = 0; index < 5; index++)
                     {
-                        string data = _connectionObject.GetMessage();
+                        string data = _network.GetMessage().Trim();
 
                         if (data.StartsWith("/sc"))
                         {
@@ -517,7 +590,7 @@ namespace BCS_Software
                             _playerEnemy.Name = enemyName;
                             labelEnemyName.Text = enemyName;
 
-                            listBoxLog.Items.Add("Verbindung zum Partner hergestellt.");
+                            listBoxLog.Items.Add("Verbindung zum Host hergestellt.");
                             break;
                         }
                     }
@@ -539,8 +612,8 @@ namespace BCS_Software
             }
             catch (Exception ex)
             {
-                if (_connectionObject.IsConnected)
-                    _connectionObject.SendMessage("$CLOSEERROR$");
+                if (_network.IsConnected)
+                    _network.SendMessage("$CLOSEERROR$");
 
                 mainTimer.Stop();
 
@@ -558,7 +631,7 @@ namespace BCS_Software
             {
                 if (_isHost)
                 {
-                    string recieveMessage = _connectionObject.GetMessage();
+                    string recieveMessage = _network.GetMessage().Trim();
                     if (recieveMessage != null && recieveMessage != string.Empty)
                     {
                         if (recieveMessage.Contains("$CLOSECONNECTION$"))
@@ -605,9 +678,9 @@ namespace BCS_Software
 
                     _commands = new StringBuilder();
 
-                    if (_connectionObject.IsConnected)
+                    if (_network.IsConnected)
                     {
-                        _connectionObject.SendMessage(builder.ToString());
+                        _network.SendMessage(builder.ToString());
                     }
                     else
                     {
@@ -635,11 +708,11 @@ namespace BCS_Software
 
                     string recieveMessage = string.Empty;
 
-                    if (_connectionObject.IsConnected)
+                    if (_network.IsConnected)
                     {
-                        _connectionObject.SendMessage(builder.ToString());
+                        _network.SendMessage(builder.ToString());
 
-                        recieveMessage = _connectionObject.GetMessage();
+                        recieveMessage = _network.GetMessage().Trim();
                     }
                     else
                     {
@@ -686,8 +759,8 @@ namespace BCS_Software
             }
             catch (Exception ex)
             {
-                if(_connectionObject.IsConnected)
-                    _connectionObject.SendMessage("$CLOSEERROR$");
+                if(_network.IsConnected)
+                    _network.SendMessage("$CLOSEERROR$");
 
                 mainTimer.Stop();
 
@@ -768,8 +841,8 @@ namespace BCS_Software
 
                 if (_playerEnemy.Jets <= 0 && _playerEnemy.Soldiers <= 0 && _playerEnemy.Tanks <= 0)
                 {
-                    if (_connectionObject.IsConnected)
-                        _connectionObject.SendMessage("$CLOSECONNECTION$");
+                    if (_network.IsConnected)
+                        _network.SendMessage("$CLOSECONNECTION$");
                     else
                     {
                         mainTimer.Stop();
@@ -814,7 +887,7 @@ namespace BCS_Software
         {
             if (cmdString.StartsWith("/chat"))
             {
-                listBoxChatLog.Items.Add("Gegner:" + cmdString.Substring(6));
+                listBoxChatLog.Items.Add("Gegner: " + cmdString.Substring(5));
 
                 return;
             }
@@ -981,8 +1054,8 @@ namespace BCS_Software
                     return;
                 }
 
-                if (_connectionObject.IsConnected)
-                    _connectionObject.SendMessage("$SURRENDER$");
+                if (_network.IsConnected)
+                    _network.SendMessage("$SURRENDER$");
 
                 mainTimer.Stop();
             }
@@ -1009,9 +1082,9 @@ namespace BCS_Software
             if (MessageBox.Show("Bist du wirklich fertig mit dem erstellen deiner Armee?\nDu kannst später keine Objekte nachkaufen!", "Fertig?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 _playerYou.IsReady = true;
-                _startObjectSum = (int)_playerYou.Tanks + (int)_playerYou.Soldiers + (int)_playerYou.Jets;
+                int sum = (int)_playerYou.Tanks + (int)_playerYou.Soldiers + (int)_playerYou.Jets;
 
-                if(_startObjectSum == 0)
+                if(sum == 0)
                 {
                     if (MessageBox.Show("Es scheint als hättest du kein einziges Objekt gekauft!\n" +
                                     "Bist du sicher das du das möchtest? Du hast sofort ver-\n" +
@@ -1077,6 +1150,12 @@ namespace BCS_Software
         private void MenuButtonInfo_Click(object sender, EventArgs e)
         {
             new AboutBox().Show();
+        }
+
+        private void MenuButtonHelp_Click(object sender, EventArgs e)
+        {
+            _helper.Show();
+            _helper.BringToFront();
         }
 
         private void LoadImages(CustomImages customImages)
@@ -1220,18 +1299,18 @@ namespace BCS_Software
 
         private void ServerThread()
         {
-            _serverEstablished = false;
-            _connectionObject = new NetworkManager(IPAddress.Any, _port, true);
-            _serverEstablished = true;
+            _isServerConnected = false;
+            _network = new NetworkManager(IPAddress.Any, _port, true);
+            _isServerConnected = true;
         }
 
         private void InitThread()
         {
-            while (!_serverEstablished) ;
+            while (!_isServerConnected) ;
 
             for (int index = 0; index < 5; ++index)
             {
-                string data = _connectionObject.GetMessage();
+                string data = _network.GetMessage().Trim();
 
                 /*
                  * /cc initalisierung
@@ -1254,14 +1333,14 @@ namespace BCS_Software
                     Invoke(new Action(() => listBoxLog.Items.Add("Verbindung zum Partner hergestellt.")));
                     Invoke(new Action(() => labelEnemyName.Text = enemyName));
 
-                    _connectionObject.SendMessage($"/sc/{_playerYou.Name}/{_playerYou.LivePoints}");
+                    _network.SendMessage($"/sc/{_playerYou.Name}/{_playerYou.LivePoints}");
                     break;
                 }
                 else if (data.StartsWith("/cc"))
                 {
                     Invoke(new Action(() => listBoxLog.Items.Add("Die Version deines Partners ist veraltet!")));
                     Invoke(new Action(() => listBoxLog.Items.Add("Bitte auf Version 3 upgraden!")));
-                    _connectionObject.CloseConnection();
+                    _network.CloseConnection();
                     return;
                 }
             }
@@ -1287,7 +1366,7 @@ namespace BCS_Software
             if (textBoxChatMessage.TextLength <= 0)
                 return;
 
-            _connectionObject.SendMessage($"/chat{textBoxChatMessage.Text}");
+            _network.SendMessage($"/chat{textBoxChatMessage.Text}");
             listBoxChatLog.Items.Add("Du: " + textBoxChatMessage.Text);
 
             textBoxChatMessage.Clear();
@@ -1300,5 +1379,6 @@ namespace BCS_Software
         }
 
         #endregion
+
     }
 }

@@ -17,5 +17,8 @@
         internal const float JetOnSoldier = 3.0f;
         internal const float JetOnTank = 1.5f;
         internal const float JetOnJet = 1.0f;
+
+        internal const float HitChance = 0.9f;
+        internal const float TankOnJetHitChance = 0.01f;
     }
 }

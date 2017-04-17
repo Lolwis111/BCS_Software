@@ -73,6 +73,7 @@
             // pictureTank
             // 
             this.pictureTank.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureTank.Image = global::BCS_Software.Resource.tank64;
             this.pictureTank.Location = new System.Drawing.Point(79, 80);
             this.pictureTank.Name = "pictureTank";
             this.pictureTank.Size = new System.Drawing.Size(64, 64);
@@ -84,6 +85,7 @@
             // pictureSoldier
             // 
             this.pictureSoldier.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureSoldier.Image = global::BCS_Software.Resource.soldier64;
             this.pictureSoldier.Location = new System.Drawing.Point(9, 80);
             this.pictureSoldier.Name = "pictureSoldier";
             this.pictureSoldier.Size = new System.Drawing.Size(64, 64);
@@ -95,6 +97,7 @@
             // pictureJet
             // 
             this.pictureJet.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureJet.Image = global::BCS_Software.Resource.jet64;
             this.pictureJet.Location = new System.Drawing.Point(149, 80);
             this.pictureJet.Name = "pictureJet";
             this.pictureJet.Size = new System.Drawing.Size(64, 64);
@@ -114,6 +117,7 @@
             this.rdNormalIcons.TabStop = true;
             this.rdNormalIcons.Text = "Normale Icons verwenden";
             this.rdNormalIcons.UseVisualStyleBackColor = true;
+            this.rdNormalIcons.CheckedChanged += new System.EventHandler(this.IconType_CheckedChanged);
             // 
             // rdCustomIcons
             // 
@@ -124,6 +128,7 @@
             this.rdCustomIcons.TabIndex = 3;
             this.rdCustomIcons.Text = "Eigene Icons verwenden";
             this.rdCustomIcons.UseVisualStyleBackColor = true;
+            this.rdCustomIcons.CheckedChanged += new System.EventHandler(this.IconType_CheckedChanged);
             // 
             // buttonSave
             // 

@@ -18,9 +18,9 @@
                 components.Dispose();
             }
 
-            if (disposing && (_connectionObject != null))
+            if (disposing && (_network != null))
             {
-                _connectionObject.Dispose();
+                _network.Dispose();
             }
 
             base.Dispose(disposing);
@@ -59,6 +59,10 @@
             this.labelPrice1 = new System.Windows.Forms.Label();
             this.labelPrice2 = new System.Windows.Forms.Label();
             this.labelPrice3 = new System.Windows.Forms.Label();
+            this.listBoxChatLog = new System.Windows.Forms.ListBox();
+            this.buttonChatSend = new System.Windows.Forms.Button();
+            this.textBoxChatMessage = new System.Windows.Forms.TextBox();
+            this.menuButtonHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBoxTurnYou = new System.Windows.Forms.PictureBox();
             this.pictureBoxTurnEnemy = new System.Windows.Forms.PictureBox();
             this.pcJetYou = new System.Windows.Forms.PictureBox();
@@ -67,9 +71,6 @@
             this.pcJetEnemy = new System.Windows.Forms.PictureBox();
             this.pcTankEnemy = new System.Windows.Forms.PictureBox();
             this.pcSoldierEnemy = new System.Windows.Forms.PictureBox();
-            this.listBoxChatLog = new System.Windows.Forms.ListBox();
-            this.buttonChatSend = new System.Windows.Forms.Button();
-            this.textBoxChatMessage = new System.Windows.Forms.TextBox();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTurnYou)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTurnEnemy)).BeginInit();
@@ -86,7 +87,8 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuButtonExit,
             this.menuButtonInfo,
-            this.menuButtonChat});
+            this.menuButtonChat,
+            this.menuButtonHelp});
             resources.ApplyResources(this.menuStrip, "menuStrip");
             this.menuStrip.Name = "menuStrip";
             // 
@@ -206,6 +208,32 @@
             resources.ApplyResources(this.labelPrice3, "labelPrice3");
             this.labelPrice3.Name = "labelPrice3";
             // 
+            // listBoxChatLog
+            // 
+            this.listBoxChatLog.FormattingEnabled = true;
+            resources.ApplyResources(this.listBoxChatLog, "listBoxChatLog");
+            this.listBoxChatLog.Name = "listBoxChatLog";
+            this.listBoxChatLog.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            // 
+            // buttonChatSend
+            // 
+            resources.ApplyResources(this.buttonChatSend, "buttonChatSend");
+            this.buttonChatSend.Name = "buttonChatSend";
+            this.buttonChatSend.UseVisualStyleBackColor = true;
+            this.buttonChatSend.Click += new System.EventHandler(this.ButtonChatSend_Click);
+            // 
+            // textBoxChatMessage
+            // 
+            resources.ApplyResources(this.textBoxChatMessage, "textBoxChatMessage");
+            this.textBoxChatMessage.Name = "textBoxChatMessage";
+            this.textBoxChatMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxChatMessage_KeyDown);
+            // 
+            // menuButtonHelp
+            // 
+            this.menuButtonHelp.Name = "menuButtonHelp";
+            resources.ApplyResources(this.menuButtonHelp, "menuButtonHelp");
+            this.menuButtonHelp.Click += new System.EventHandler(this.MenuButtonHelp_Click);
+            // 
             // pictureBoxTurnYou
             // 
             this.pictureBoxTurnYou.Image = global::BCS_Software.Resource.yourTurn;
@@ -279,26 +307,6 @@
             this.pcSoldierEnemy.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PcSoldierEnemy_MouseClick);
             this.pcSoldierEnemy.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PcSoldierEnemy_MouseDown);
             this.pcSoldierEnemy.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PcSoldierEnemy_MouseUp);
-            // 
-            // listBoxChatLog
-            // 
-            this.listBoxChatLog.FormattingEnabled = true;
-            resources.ApplyResources(this.listBoxChatLog, "listBoxChatLog");
-            this.listBoxChatLog.Name = "listBoxChatLog";
-            this.listBoxChatLog.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            // 
-            // buttonChatSend
-            // 
-            resources.ApplyResources(this.buttonChatSend, "buttonChatSend");
-            this.buttonChatSend.Name = "buttonChatSend";
-            this.buttonChatSend.UseVisualStyleBackColor = true;
-            this.buttonChatSend.Click += new System.EventHandler(this.ButtonChatSend_Click);
-            // 
-            // textBoxChatMessage
-            // 
-            resources.ApplyResources(this.textBoxChatMessage, "textBoxChatMessage");
-            this.textBoxChatMessage.Name = "textBoxChatMessage";
-            this.textBoxChatMessage.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxChatMessage_KeyDown);
             // 
             // Main
             // 
@@ -392,6 +400,7 @@
         private System.Windows.Forms.ListBox listBoxChatLog;
         private System.Windows.Forms.Button buttonChatSend;
         private System.Windows.Forms.TextBox textBoxChatMessage;
+        private System.Windows.Forms.ToolStripMenuItem menuButtonHelp;
     }
 }
 

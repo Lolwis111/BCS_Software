@@ -124,6 +124,30 @@
     <value>True</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="menuButtonExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 20</value>
+  </data>
+  <data name="menuButtonExit.Text" xml:space="preserve">
+    <value>Beenden</value>
+  </data>
+  <data name="menuButtonInfo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 20</value>
+  </data>
+  <data name="menuButtonInfo.Text" xml:space="preserve">
+    <value> Information</value>
+  </data>
+  <data name="menuButtonChat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="menuButtonChat.Text" xml:space="preserve">
+    <value>Chat</value>
+  </data>
+  <data name="menuButtonHelp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
+  </data>
+  <data name="menuButtonHelp.Text" xml:space="preserve">
+    <value>Hilfe</value>
+  </data>
   <data name="menuStrip.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -149,24 +173,6 @@
   <data name="&gt;&gt;menuStrip.ZOrder" xml:space="preserve">
     <value>28</value>
   </data>
-  <data name="menuButtonExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 20</value>
-  </data>
-  <data name="menuButtonExit.Text" xml:space="preserve">
-    <value>Beenden</value>
-  </data>
-  <data name="menuButtonInfo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 20</value>
-  </data>
-  <data name="menuButtonInfo.Text" xml:space="preserve">
-    <value> Information</value>
-  </data>
-  <data name="menuButtonChat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
-  </data>
-  <data name="menuButtonChat.Text" xml:space="preserve">
-    <value>Chat</value>
-  </data>
   <metadata name="mainTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>132, 17</value>
   </metadata>
@@ -175,6 +181,10 @@
   </metadata>
   <data name="labelLifePointsYou.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="labelLifePointsYou.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="labelLifePointsYou.Location" type="System.Drawing.Point, System.Drawing">
     <value>486, 202</value>
@@ -202,6 +212,9 @@
   </data>
   <data name="labelLifePointsEnemy.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="labelLifePointsEnemy.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="labelLifePointsEnemy.Location" type="System.Drawing.Point, System.Drawing">
     <value>153, 48</value>
@@ -233,6 +246,9 @@
   <data name="labelYourName.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
+  <data name="labelYourName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="labelYourName.Location" type="System.Drawing.Point, System.Drawing">
     <value>350, 178</value>
   </data>
@@ -257,6 +273,9 @@
   <data name="&gt;&gt;labelYourName.ZOrder" xml:space="preserve">
     <value>24</value>
   </data>
+  <data name="progressLifeBarYou.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="progressLifeBarYou.Location" type="System.Drawing.Point, System.Drawing">
     <value>353, 197</value>
   </data>
@@ -277,6 +296,9 @@
   </data>
   <data name="&gt;&gt;progressLifeBarYou.ZOrder" xml:space="preserve">
     <value>25</value>
+  </data>
+  <data name="progressLifebarEnemy.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="progressLifebarEnemy.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 43</value>
@@ -305,6 +327,9 @@
   <data name="labelEnemyName.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
+  <data name="labelEnemyName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="labelEnemyName.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 24</value>
   </data>
@@ -328,6 +353,9 @@
   </data>
   <data name="&gt;&gt;labelEnemyName.ZOrder" xml:space="preserve">
     <value>27</value>
+  </data>
+  <data name="buttonReady.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="buttonReady.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 350</value>
@@ -377,6 +405,9 @@
   <data name="labelSoldierEnemy.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="labelSoldierEnemy.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="labelSoldierEnemy.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 154</value>
   </data>
@@ -403,6 +434,9 @@
   </data>
   <data name="labelSoldierYou.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="labelSoldierYou.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="labelSoldierYou.Location" type="System.Drawing.Point, System.Drawing">
     <value>356, 308</value>
@@ -431,6 +465,9 @@
   <data name="labelTankYou.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="labelTankYou.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="labelTankYou.Location" type="System.Drawing.Point, System.Drawing">
     <value>474, 308</value>
   </data>
@@ -457,6 +494,9 @@
   </data>
   <data name="labelTankEnemy.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="labelTankEnemy.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="labelTankEnemy.Location" type="System.Drawing.Point, System.Drawing">
     <value>136, 154</value>
@@ -485,6 +525,9 @@
   <data name="labelJetEnemy.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="labelJetEnemy.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="labelJetEnemy.Location" type="System.Drawing.Point, System.Drawing">
     <value>233, 154</value>
   </data>
@@ -511,6 +554,9 @@
   </data>
   <data name="labelJetYou.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="labelJetYou.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="labelJetYou.Location" type="System.Drawing.Point, System.Drawing">
     <value>571, 308</value>
@@ -539,6 +585,9 @@
   <data name="labelPrice1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="labelPrice1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="labelPrice1.Location" type="System.Drawing.Point, System.Drawing">
     <value>379, 327</value>
   </data>
@@ -565,6 +614,9 @@
   </data>
   <data name="labelPrice2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="labelPrice2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="labelPrice2.Location" type="System.Drawing.Point, System.Drawing">
     <value>483, 327</value>
@@ -593,6 +645,9 @@
   <data name="labelPrice3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="labelPrice3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="labelPrice3.Location" type="System.Drawing.Point, System.Drawing">
     <value>588, 327</value>
   </data>
@@ -617,180 +672,6 @@
   <data name="&gt;&gt;labelPrice3.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="pictureBoxTurnYou.Location" type="System.Drawing.Point, System.Drawing">
-    <value>91, 197</value>
-  </data>
-  <data name="pictureBoxTurnYou.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 100</value>
-  </data>
-  <data name="pictureBoxTurnYou.TabIndex" type="System.Int32, mscorlib">
-    <value>33</value>
-  </data>
-  <data name="pictureBoxTurnYou.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxTurnYou.Name" xml:space="preserve">
-    <value>pictureBoxTurnYou</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxTurnYou.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxTurnYou.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxTurnYou.ZOrder" xml:space="preserve">
-    <value>14</value>
-  </data>
-  <data name="pictureBoxTurnEnemy.Location" type="System.Drawing.Point, System.Drawing">
-    <value>382, 43</value>
-  </data>
-  <data name="pictureBoxTurnEnemy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 100</value>
-  </data>
-  <data name="pictureBoxTurnEnemy.TabIndex" type="System.Int32, mscorlib">
-    <value>32</value>
-  </data>
-  <data name="pictureBoxTurnEnemy.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxTurnEnemy.Name" xml:space="preserve">
-    <value>pictureBoxTurnEnemy</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxTurnEnemy.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxTurnEnemy.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pictureBoxTurnEnemy.ZOrder" xml:space="preserve">
-    <value>15</value>
-  </data>
-  <data name="pcJetYou.Location" type="System.Drawing.Point, System.Drawing">
-    <value>561, 226</value>
-  </data>
-  <data name="pcJetYou.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 98</value>
-  </data>
-  <data name="pcJetYou.TabIndex" type="System.Int32, mscorlib">
-    <value>31</value>
-  </data>
-  <data name="&gt;&gt;pcJetYou.Name" xml:space="preserve">
-    <value>pcJetYou</value>
-  </data>
-  <data name="&gt;&gt;pcJetYou.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pcJetYou.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pcJetYou.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
-  <data name="pcTankYou.Location" type="System.Drawing.Point, System.Drawing">
-    <value>457, 226</value>
-  </data>
-  <data name="pcTankYou.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 98</value>
-  </data>
-  <data name="pcTankYou.TabIndex" type="System.Int32, mscorlib">
-    <value>30</value>
-  </data>
-  <data name="&gt;&gt;pcTankYou.Name" xml:space="preserve">
-    <value>pcTankYou</value>
-  </data>
-  <data name="&gt;&gt;pcTankYou.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pcTankYou.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pcTankYou.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="pcSoldierYou.Location" type="System.Drawing.Point, System.Drawing">
-    <value>353, 226</value>
-  </data>
-  <data name="pcSoldierYou.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 98</value>
-  </data>
-  <data name="pcSoldierYou.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
-  </data>
-  <data name="&gt;&gt;pcSoldierYou.Name" xml:space="preserve">
-    <value>pcSoldierYou</value>
-  </data>
-  <data name="&gt;&gt;pcSoldierYou.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pcSoldierYou.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pcSoldierYou.ZOrder" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="pcJetEnemy.Location" type="System.Drawing.Point, System.Drawing">
-    <value>223, 72</value>
-  </data>
-  <data name="pcJetEnemy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 98</value>
-  </data>
-  <data name="pcJetEnemy.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
-  <data name="&gt;&gt;pcJetEnemy.Name" xml:space="preserve">
-    <value>pcJetEnemy</value>
-  </data>
-  <data name="&gt;&gt;pcJetEnemy.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pcJetEnemy.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pcJetEnemy.ZOrder" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="pcTankEnemy.Location" type="System.Drawing.Point, System.Drawing">
-    <value>119, 72</value>
-  </data>
-  <data name="pcTankEnemy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 98</value>
-  </data>
-  <data name="pcTankEnemy.TabIndex" type="System.Int32, mscorlib">
-    <value>27</value>
-  </data>
-  <data name="&gt;&gt;pcTankEnemy.Name" xml:space="preserve">
-    <value>pcTankEnemy</value>
-  </data>
-  <data name="&gt;&gt;pcTankEnemy.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pcTankEnemy.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pcTankEnemy.ZOrder" xml:space="preserve">
-    <value>20</value>
-  </data>
-  <data name="pcSoldierEnemy.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 72</value>
-  </data>
-  <data name="pcSoldierEnemy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>98, 98</value>
-  </data>
-  <data name="pcSoldierEnemy.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="&gt;&gt;pcSoldierEnemy.Name" xml:space="preserve">
-    <value>pcSoldierEnemy</value>
-  </data>
-  <data name="&gt;&gt;pcSoldierEnemy.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pcSoldierEnemy.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;pcSoldierEnemy.ZOrder" xml:space="preserve">
-    <value>21</value>
-  </data>
   <data name="listBoxChatLog.HorizontalScrollbar" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -814,6 +695,9 @@
   </data>
   <data name="&gt;&gt;listBoxChatLog.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="buttonChatSend.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="buttonChatSend.Location" type="System.Drawing.Point, System.Drawing">
     <value>996, 475</value>
@@ -860,8 +744,209 @@
   <data name="&gt;&gt;textBoxChatMessage.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="pictureBoxTurnYou.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBoxTurnYou.Location" type="System.Drawing.Point, System.Drawing">
+    <value>91, 197</value>
+  </data>
+  <data name="pictureBoxTurnYou.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 100</value>
+  </data>
+  <data name="pictureBoxTurnYou.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="pictureBoxTurnYou.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxTurnYou.Name" xml:space="preserve">
+    <value>pictureBoxTurnYou</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxTurnYou.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxTurnYou.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxTurnYou.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="pictureBoxTurnEnemy.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pictureBoxTurnEnemy.Location" type="System.Drawing.Point, System.Drawing">
+    <value>382, 43</value>
+  </data>
+  <data name="pictureBoxTurnEnemy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 100</value>
+  </data>
+  <data name="pictureBoxTurnEnemy.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="pictureBoxTurnEnemy.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxTurnEnemy.Name" xml:space="preserve">
+    <value>pictureBoxTurnEnemy</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxTurnEnemy.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxTurnEnemy.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxTurnEnemy.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="pcJetYou.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pcJetYou.Location" type="System.Drawing.Point, System.Drawing">
+    <value>561, 226</value>
+  </data>
+  <data name="pcJetYou.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 98</value>
+  </data>
+  <data name="pcJetYou.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="&gt;&gt;pcJetYou.Name" xml:space="preserve">
+    <value>pcJetYou</value>
+  </data>
+  <data name="&gt;&gt;pcJetYou.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pcJetYou.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pcJetYou.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="pcTankYou.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pcTankYou.Location" type="System.Drawing.Point, System.Drawing">
+    <value>457, 226</value>
+  </data>
+  <data name="pcTankYou.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 98</value>
+  </data>
+  <data name="pcTankYou.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="&gt;&gt;pcTankYou.Name" xml:space="preserve">
+    <value>pcTankYou</value>
+  </data>
+  <data name="&gt;&gt;pcTankYou.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pcTankYou.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pcTankYou.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="pcSoldierYou.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pcSoldierYou.Location" type="System.Drawing.Point, System.Drawing">
+    <value>353, 226</value>
+  </data>
+  <data name="pcSoldierYou.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 98</value>
+  </data>
+  <data name="pcSoldierYou.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="&gt;&gt;pcSoldierYou.Name" xml:space="preserve">
+    <value>pcSoldierYou</value>
+  </data>
+  <data name="&gt;&gt;pcSoldierYou.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pcSoldierYou.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pcSoldierYou.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="pcJetEnemy.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pcJetEnemy.Location" type="System.Drawing.Point, System.Drawing">
+    <value>223, 72</value>
+  </data>
+  <data name="pcJetEnemy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 98</value>
+  </data>
+  <data name="pcJetEnemy.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="&gt;&gt;pcJetEnemy.Name" xml:space="preserve">
+    <value>pcJetEnemy</value>
+  </data>
+  <data name="&gt;&gt;pcJetEnemy.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pcJetEnemy.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pcJetEnemy.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="pcTankEnemy.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pcTankEnemy.Location" type="System.Drawing.Point, System.Drawing">
+    <value>119, 72</value>
+  </data>
+  <data name="pcTankEnemy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 98</value>
+  </data>
+  <data name="pcTankEnemy.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;pcTankEnemy.Name" xml:space="preserve">
+    <value>pcTankEnemy</value>
+  </data>
+  <data name="&gt;&gt;pcTankEnemy.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pcTankEnemy.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pcTankEnemy.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="pcSoldierEnemy.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pcSoldierEnemy.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 72</value>
+  </data>
+  <data name="pcSoldierEnemy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 98</value>
+  </data>
+  <data name="pcSoldierEnemy.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="&gt;&gt;pcSoldierEnemy.Name" xml:space="preserve">
+    <value>pcSoldierEnemy</value>
+  </data>
+  <data name="&gt;&gt;pcSoldierEnemy.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pcSoldierEnemy.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pcSoldierEnemy.ZOrder" xml:space="preserve">
+    <value>21</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>25</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
@@ -918,7 +1003,9 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
 </value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
@@ -954,6 +1041,12 @@
   </data>
   <data name="&gt;&gt;uiTimer.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuButtonHelp.Name" xml:space="preserve">
+    <value>menuButtonHelp</value>
+  </data>
+  <data name="&gt;&gt;menuButtonHelp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Main</value>

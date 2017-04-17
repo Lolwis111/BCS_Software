@@ -264,7 +264,7 @@
     <value>8</value>
   </data>
   <data name="buttonStart.Text" xml:space="preserve">
-    <value>Server starten</value>
+    <value>Verbinden</value>
   </data>
   <data name="&gt;&gt;buttonStart.Name" xml:space="preserve">
     <value>buttonStart</value>

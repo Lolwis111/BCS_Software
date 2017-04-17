@@ -23,25 +23,6 @@ namespace BCS_Software
             InitializeComponent();
         }
 
-        private void RdNormal_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdNormalIcons.Checked)
-            {
-                pictureSoldier.Image = Resource.soldier64;
-                pictureTank.Image = Resource.tank64;
-                pictureJet.Image = Resource.jet64;
-                IsSoldierSet = true;
-                IsTankSet = true;
-                IsJetSet = true;
-            }
-            else
-            {
-                pictureSoldier.Image = new Bitmap(64, 64);
-                pictureTank.Image = new Bitmap(64, 64);
-                pictureJet.Image = new Bitmap(64, 64);
-            }
-        }
-
         private void PictureSoldier_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -103,9 +84,9 @@ namespace BCS_Software
                 if (rdCustomIcons.Checked)
                 {
                     OpenFileDialog openFile = new OpenFileDialog();
-                    openFile.Filter = "Bild Dateien|*.jpg;*.png;*.gif;*.jpeg";
+                    openFile.Filter = "Bild Dateien|*.jpg;*.png;*.gif;*.jpeg;*.bmp";
                     openFile.Multiselect = false;
-                    if (openFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    if (openFile.ShowDialog() == DialogResult.OK)
                     {
                         pictureJet.Image = Image.FromFile(openFile.FileName);
                         _customImages.JetImagePath = openFile.FileName;
@@ -152,6 +133,25 @@ namespace BCS_Software
             }
 
             Close();
+        }
+
+        private void IconType_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdNormalIcons.Checked)
+            {
+                pictureSoldier.Image = Resource.soldier64;
+                pictureTank.Image = Resource.tank64;
+                pictureJet.Image = Resource.jet64;
+                IsSoldierSet = true;
+                IsTankSet = true;
+                IsJetSet = true;
+            }
+            else
+            {
+                pictureSoldier.Image = new Bitmap(64, 64);
+                pictureTank.Image = new Bitmap(64, 64);
+                pictureJet.Image = new Bitmap(64, 64);
+            }
         }
     }
 }

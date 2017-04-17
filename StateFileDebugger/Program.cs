@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace StateFileDebugger
 {
+    [Obsolete("The state system got dropped. Simply enter name and points into BCS Software.")]
     class Program
     {
         static void Main(string[] args)
