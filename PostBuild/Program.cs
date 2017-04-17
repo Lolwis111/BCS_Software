@@ -48,7 +48,7 @@ namespace PostBuild
                 if(File.Exists(path))
                     File.Delete(path);
 
-                File.Move(args[0], path);
+                File.Copy(args[0], path);
 
                 md5 = MD5.Create();
                 //sha1 = SHA1.Create();
